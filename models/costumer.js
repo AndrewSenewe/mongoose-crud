@@ -1,8 +1,6 @@
 const mongoose = require('mongoose'),
       Schema = mongoose.Schema
 
-// validations
-
 
 var costumerSchema = new Schema({
   name : {

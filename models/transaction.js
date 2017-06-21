@@ -1,18 +1,18 @@
-const mongoose = require('mongoose'),
-      Schema = mongoose.Schema
+const mongoose = require('mongoose')
+var Schema = mongoose.Schema
 
 
 var transactionSchema = new Schema({
   memberid : String,
-  days : {
-    type : String,
+  days : [{
+    type : Schema.Types.ObjectId,
     ref: 'Costumer'
-  },
-  out_date : String,
-  due_date : String,
-  in_date : String,
+  }],
+  out_date : Date,
+  due_date : Date,
+  in_date : Date,
   fine : Number,
-  bookList: [{type: Schema.Types.ObjectId, ref:'Book'}]
+  booklist:  [{ type: Schema.Types.ObjectId, ref: 'Book' }]
 });
 
 let Transaction = mongoose.model('Transaction', transactionSchema)
